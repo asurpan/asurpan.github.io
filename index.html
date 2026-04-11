@@ -3,63 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sagon Dev | High-End Android Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    <title>Sagon Dev | High-End Android Studio</title>
+    <!-- Tipografías de Lujo -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --gold: #D4AF37;
+            --deep-black: #080808;
+            --ivory: #FFFDF9;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
+
         body {
-            background-color: #080808;
-            color: #FFFDF9;
+            background-color: var(--deep-black);
+            color: var(--ivory);
             font-family: 'Inter', sans-serif;
             margin: 0;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #080808 100%);
+        }
+
+        .hero {
             text-align: center;
+            padding: 40px;
+            animation: fadeIn 1.5s ease-out;
         }
-        .container {
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 60px;
-            border-radius: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(10px);
-        }
+
         h1 {
             font-family: 'Playfair Display', serif;
-            color: #D4AF37;
-            font-size: 3rem;
-            letter-spacing: -1px;
+            color: var(--gold);
+            font-size: 3.5rem;
             margin: 0;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-        p {
-            color: #A0A0A0;
-            letter-spacing: 4px;
-            font-size: 0.8rem;
-            margin-top: 10px;
+
+        .badge {
+            color: var(--gold);
             text-transform: uppercase;
+            letter-spacing: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+            opacity: 0.8;
         }
-        .links {
-            margin-top: 30px;
+
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            width: 90%;
+            margin-top: 50px;
         }
-        a {
-            color: #D4AF37;
+
+        .app-card {
+            background: var(--glass);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 40px;
+            border-radius: 32px;
+            text-align: left;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            margin: 0 15.px;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(212, 175, 55, 0.05));
+            opacity: 0;
+            transition: 0.4s;
+        }
+
+        .app-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .app-card:hover::before { opacity: 1; }
+
+        .app-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--gold);
+            margin: 0 0 12px 0;
+            font-size: 1.6rem;
+        }
+
+        .app-card p {
             font-size: 0.9rem;
-            opacity: 0.7;
+            color: #A0A0A0;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .status {
+            font-size: 0.65rem;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 2px 8px;
+            border-radius: 40px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 40px;
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        footer a {
+            color: #888;
+            text-decoration: none;
             transition: 0.3s;
         }
-        a:hover { opacity: 1; }
+
+        footer a:hover { color: var(--gold); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <p>Studio de Desarrollo</p>
-        <h1>SAGON DEV LUXE</h1>
-        <div class="links">
-            <a href="/paella/">Política de Privacidad</a>
-            <a href="/app-ads.txt">Verificación AdMob</a>
+
+    <div class="hero">
+        <span class="badge">Estudio de Desarrollo Premium</span>
+        <h1>SAGON DEV</h1>
+    </div>
+
+    <div class="app-grid">
+        <!-- Paella Master Luxe -->
+        <a href="https://asurpan.github.io/paella/" class="app-card">
+            <h2>Paella Master Luxe</h2>
+            <p>El ritual definitivo para el maestro arrocero. Cálculos de alta precisión, maridaje de autor y exportación de minutas de gala.</p>
+            <span class="status">DISPONIBLE</span>
+        </a>
+
+        <!-- Autopia Pro -->
+        <div class="app-card">
+            <h2>Autopia Pro</h2>
+            <p>Inteligencia aplicada a la movilidad. Gestión avanzada de trayectos y optimización de recursos para el conductor moderno.</p>
+            <span class="status">SOPORTE ACTIVO</span>
+        </div>
+
+        <!-- AuditPro -->
+        <div class="app-card">
+            <h2>AuditPro & Biosync</h2>
+            <p>Herramientas de auditoría técnica y sincronización cuántica con estándares de seguridad industrial.</p>
+            <span class="status">SOPORTE ACTIVO</span>
         </div>
     </div>
+
+    <footer>
+        &copy; 2024 SAGON DEV LUXE STUDIO • <a href="/app-ads.txt">ADS VERIFICATION</a> • <a href="mailto:asurpan@gmail.com">CONTACTO</a>
+    </footer>
+
 </body>
 </html>
